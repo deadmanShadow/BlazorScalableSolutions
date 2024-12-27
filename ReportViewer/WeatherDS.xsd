@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="WeatherDS" targetNamespace="http://tempuri.org/WeatherDS.xsd" xmlns:mstns="http://tempuri.org/WeatherDS.xsd" xmlns="http://tempuri.org/WeatherDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="WeatherDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="WeatherDS" msprop:Generator_DataSetName="WeatherDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="WeatherForecastDS" msprop:Generator_RowEvHandlerName="WeatherForecastDSRowChangeEventHandler" msprop:Generator_RowDeletedName="WeatherForecastDSRowDeleted" msprop:Generator_RowDeletingName="WeatherForecastDSRowDeleting" msprop:Generator_RowEvArgName="WeatherForecastDSRowChangeEvent" msprop:Generator_TablePropName="WeatherForecastDS" msprop:Generator_RowChangedName="WeatherForecastDSRowChanged" msprop:Generator_RowChangingName="WeatherForecastDSRowChanging" msprop:Generator_TableClassName="WeatherForecastDSDataTable" msprop:Generator_RowClassName="WeatherForecastDSRow" msprop:Generator_TableVarName="tableWeatherForecastDS" msprop:Generator_UserTableName="WeatherForecastDS">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Date" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_UserColumnName="Date" type="xs:string" minOccurs="0" />
+              <xs:element name="TemperatureC" msprop:Generator_ColumnPropNameInRow="TemperatureC" msprop:Generator_ColumnPropNameInTable="TemperatureCColumn" msprop:Generator_ColumnVarNameInTable="columnTemperatureC" msprop:Generator_UserColumnName="TemperatureC" type="xs:string" minOccurs="0" />
+              <xs:element name="Summary" msprop:Generator_ColumnPropNameInRow="Summary" msprop:Generator_ColumnPropNameInTable="SummaryColumn" msprop:Generator_ColumnVarNameInTable="columnSummary" msprop:Generator_UserColumnName="Summary" type="xs:string" minOccurs="0" />
+              <xs:element name="TemperatureF" msprop:Generator_ColumnPropNameInRow="TemperatureF" msprop:Generator_ColumnPropNameInTable="TemperatureFColumn" msprop:Generator_ColumnVarNameInTable="columnTemperatureF" msprop:Generator_UserColumnName="TemperatureF" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
