@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Reports\WeatherReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Dataset\WeatherDS.Designer.cs">
+      <DependentUpon>WeatherDS.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Dataset\WeatherDS.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>WeatherDS.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Reports\WeatherReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.25" />
+  </ItemGroup>
+</Project>

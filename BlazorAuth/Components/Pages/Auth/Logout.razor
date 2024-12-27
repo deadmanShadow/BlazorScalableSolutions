@@ -1,0 +1,21 @@
+﻿@inherits UserContext
+
+<AuthorizeView>
+    <Authorized>
+        <div>
+            <b>@User.UserName</b> | <button @onclick="OnClickLogout" class="btn-danger">Logout</button>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+    async Task OnClickLogout()
+
+    {
+        await Logout();
+
+        NavTo("/login");
+
+    }
+}

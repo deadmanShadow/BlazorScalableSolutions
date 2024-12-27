@@ -1,0 +1,58 @@
+﻿@page "/login"
+@layout DefaultLayout
+@inherits UserContext
+@inject UserInfoService UserInfoService
+
+<div class="row">
+    <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
+        <div class="mb-3 text-center">
+            <h3>Login</h3>
+        </div>
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @errorMessage
+            </div>
+        }
+        <div class="mb-3">
+            <label>Username</label>
+            <input @bind="_model.UserName" class="form-control" placeholder="Username" />
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input @bind="_model.Password" type="password" class="form-control" placeholder="Password" />
+        </div>
+        <div class="mb-3 d-grid gap-2">
+            <button @onclick="Authenticate" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private class Model
+    {
+        public string UserName { get; set; }
+        public string Password { get; set; }
+    }
+    [SupplyParameterFromQuery(Name = "ReturnUrl")]
+    public string ReturnUrlPath { get; set; } = "";
+    private readonly Model _model = new();
+    private string errorMessage;
+    public void AutoNavigate()
+    {
+        NavTo(string.IsNullOrEmpty(ReturnUrlPath) ? "/" : ReturnUrlPath);
+    }
+    private async Task Authenticate()
+    {
+        var userCheck = UserInfoService.GetByUserName(_model.UserName);
+        if (userCheck == null || userCheck.Password != (_model).Password)
+        {
+            errorMessage = "Invalid username or password";
+            return;
+        }
+        if (await Login(_model.UserName, _model.Password))
+        {
+            AutoNavigate();
+        }
+    }
+}
